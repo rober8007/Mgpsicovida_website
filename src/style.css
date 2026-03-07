@@ -1,0 +1,97 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  color: #222;
+  background: #ffffff;
+  line-height: 1.5;
+}
+
+.header {
+  border-bottom: 1px solid #e5e5e5;
+  background: #fff;
+  position: sticky;
+  top: 0;
+}
+
+.nav {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.menu {
+  list-style: none;
+  display: flex;
+  gap: 24px;
+}
+
+.menu a {
+  text-decoration: none;
+  color: #222;
+}
+
+.hero {
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  padding: 80px 24px;
+}
+
+.hero-contenido {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.hero h1 {
+  font-size: 52px;
+  margin-bottom: 20px;
+  line-height: 1.1;
+}
+
+.hero p {
+  font-size: 18px;
+  margin-bottom: 28px;
+}
+
+.boton {
+  display: inline-block;
+  padding: 14px 22px;
+  background: #222;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 8px;
+}
+
+.seccion {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px 24px;
+}
+
+.seccion h2 {
+  font-size: 36px;
+  margin-bottom: 16px;
+}
+
+.footer {
+  border-top: 1px solid #e5e5e5;
+  padding: 24px;
+  text-align: center;
+}
