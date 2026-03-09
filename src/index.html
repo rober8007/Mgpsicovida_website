@@ -550,14 +550,94 @@
       </div>
     </section>
 
-    <section id="contacto" class="pantalla seccion">
-      <div class="contenido-seccion">
-        <h2>Contacto</h2>
-        <p class="copyright">© 2026 Mg Psicovida</p>
+    <section class="seccion-testimonios">
+      <div class="carrusel-container">
+          
+          <div class="carrusel-window">
+              <div class="carrusel-track" id="track">
+                  <div class="testimonio">
+                    <div class="texto-wrapper">
+                      <p class="texto-testimonio">Excelente profesional. En cada sesión, Maria Gamero ofrece pautas y orientaciones altamente eficaces con exquisita atención y cuidados. Conocerla ha supuesto un gran cambio en positivo en mi vida.</p>
+                      <p class="autor-testimonio">MV - 40 años</p>
+                    </div>
+                  </div>
+
+                  <div class="testimonio">
+                    <div class="texto-wrapper">
+                      <p class="texto-testimonio">Es una persona empatica y muy agradable con la que te puedes abrir y contarle cualquier cosa, te ayuda a valorarte y te aconseja y guía hacia lo que necesitas.</p>
+                      <p class="autor-testimonio">AP - 45 años</p>
+                    </div>
+                  </div>
+
+                  <div class="testimonio">
+                    <div class="texto-wrapper">
+                      <p class="texto-testimonio">Es genial, empática y te vas con tareas para mejorar</p>
+                      <p class="autor-testimonio">AD - 39 años</p>
+                    </div>
+                  </div>
+              </div>
+          </div>
+
+          <button class="flecha prev" onclick="mover(-1)">&#10094;</button>
+          <button class="flecha next" onclick="mover(1)">&#10095;</button>
+
+          <div class="dots-container">
+              <span class="dot active" onclick="irASlide(0)"></span>
+              <span class="dot" onclick="irASlide(1)"></span>
+              <span class="dot" onclick="irASlide(2)"></span>
+          </div>
+      </div>
+    </section>
+
+    <section id="faq" class="seccion-faq">
+      <div class="faq-container">
+          
+          <div class="faq-izquierda">
+              <div class="faq-titulo-wrapper">
+                  <h2 class="faq-titulo">PREGUNTAS FRECUENTES</h2>
+              </div>
+              <div class="faq-foto">
+                  <img src="img/sala-espera.jpg" alt="Sala de espera acogedora Mg Psicovida">
+              </div>
+          </div>
+
+          <div class="faq-derecha">
+              <div class="faq-acordeon">
+                  
+                  <details class="faq-item" open> <summary class="faq-pregunta">
+                          <span>¿Cómo pido cita?</span>
+                          <span class="faq-flecha">▼</span> </summary>
+                      <div class="faq-respuesta">
+                          <p>Puedes mandar un mensaje al número de teléfono que encontrarás al final de la página, o bien puedes escribirme un correo explicándome brevemente el motivo de la consulta</p>
+                      </div>
+                  </details>
+
+                  <details class="faq-item">
+                      <summary class="faq-pregunta">
+                          <span>¿Cuáles son las formas de pago?</span>
+                          <span class="faq-flecha">▼</span>
+                      </summary>
+                      <div class="faq-respuesta">
+                          <p>La forma de pago es, bien en efectivo o bizum, al finalizar la sesión presencial, o bizum previo a la sesión on line</p>
+                      </div>
+                  </details>
+
+                  <details class="faq-item">
+                      <summary class="faq-pregunta">
+                          <span>¿Existe la opción de pagar por sesiones?</span>
+                          <span class="faq-flecha">▼</span>
+                      </summary>
+                      <div class="faq-respuesta">
+                          <p>Si, puedes contratar sesiones individuales o packs de varias sesiones según tus necesidades. Si deseas más información sobre packs y precios, puedes consultarlo al solicitar tu cita</p>
+                      </div>
+                  </details>
+
+                  </div>
+          </div>
       </div>
     </section>
   </main>
 
-  <script src="script.js"></script>
+  <script src="./js/scripts.js"></script>
 </body>
 </html>
