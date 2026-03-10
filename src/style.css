@@ -21,7 +21,6 @@ body {
   background: #ffffff;
   line-height: 1.5;
   min-height: 100vh;
-  scroll-snap-type: none;
 }
 
 main {
@@ -32,7 +31,6 @@ main {
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  scroll-snap-type: none;
 }
 
 .menu a,
@@ -122,16 +120,25 @@ h2,
   transform: translateY(-1px);
 }
 
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+  z-index: 1001;
+}
+
+.hamburger span {
+  width: 28px;
+  height: 3px;
+  background-color: #2b2140;
+  transition: all 0.3s ease;
+  border-radius: 2px;
+}
+
 .pantalla {
   min-height: calc(100vh - var(--header-height));
   position: relative;
-  scroll-snap-align: none;
-  scroll-snap-stop: normal;
-}
-
-.hero,
-.seccion {
-  z-index: 1;
 }
 
 .hero-transparente {
@@ -146,7 +153,7 @@ h2,
 }
 
 .hero-superior-derecha h1 {
-  font-size: 90px;
+  font-size: clamp(90px, 10vw, 130px);
   line-height: 1;
   color: #2b2140;
   font-weight: 700;
@@ -394,7 +401,7 @@ h2,
   align-items: center;
 }
 
-.vector-camaleon svg {
+.vector-camaleon img {
   width: 280px;
   height: auto;
   transform: scale(1.2);
@@ -424,7 +431,7 @@ h2,
   z-index: 1;
 }
 
-.vector-bg svg {
+.vector-bg img {
   width: 100%;
   height: 100%;
   object-fit: contain;
@@ -438,7 +445,7 @@ h2,
 }
 
 .texto-interno h4 {
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 700;
   margin-bottom: 10px;
   color: #000000;
@@ -449,7 +456,7 @@ h2,
 .texto-interno p {
   font-size: 12px;
   line-height: 1.4;
-  color: #2b2140;
+  color: #0f0c16;
 }
 
 .vector-camaleon {
@@ -458,11 +465,6 @@ h2,
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.vector-camaleon svg {
-  width: 100%;
-  height: auto;
 }
 
 .seccion-testimonios {
@@ -575,6 +577,7 @@ h2,
     cursor: pointer;
     transition: all 0.3s ease;
     border: 1px solid rgba(44, 30, 22, 0.1); 
+    border-radius: 50%;
 }
 
 .dot.active {
@@ -879,7 +882,7 @@ details[open] .faq-flecha {
   }
 
   .hero-superior-derecha h1 {
-    font-size: 64px;
+    font-size: 68px;
     max-width: 700px;
     margin-left: auto;
   }
@@ -915,22 +918,67 @@ details[open] .faq-flecha {
     gap: 20px;
   }
 
+  .hero-superior-derecha h1 {
+    font-size: 300px;
+  }
+
   .logo {
     width: 180px;
     height: 180px;
   }
 
-  .menu {
-    gap: 25px;
-  }
-
-  .menu a {
-    font-size: 18px;
+  .hamburger {
+    display: flex;
+    margin-left: auto;
+    padding: 20px;
   }
 
   .btn-contacto {
-    font-size: 18px;
-    padding: 12px 22px;
+    display: flex;
+  }
+
+  .nav-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 70%;
+    max-width: 340px;
+    height: 100vh;
+    background-color: #fcfcfc;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+    transition: right 0.4s ease;
+    z-index: 1000;
+    padding-top: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  .nav-menu.active {
+    right: 0;
+  }
+
+  .nav-menu .menu {
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 50px;
+  }
+
+  .nav-menu .menu a {
+    font-size: 24px;
+  }
+
+  .hamburger.active span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  .hamburger.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger.active span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
   }
 
   .hero-superior-derecha {
@@ -973,22 +1021,24 @@ details[open] .faq-flecha {
     margin-bottom: 40px;
   }
 
-  /* method section rearranged for tablet */
   .metodo-grid {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto;
+    row-gap: 40px;
   }
 
   .item-1 {
     grid-column: 1 / 2;
     grid-row: 1 / 2;
     justify-self: center;
+    margin-top: 0;
   }
 
   .item-2 {
     grid-column: 2 / 3;
     grid-row: 1 / 2;
     justify-self: center;
+    margin-top: 0;
   }
 
   .item-centro {
@@ -1002,37 +1052,46 @@ details[open] .faq-flecha {
     grid-column: 1 / 2;
     grid-row: 3 / 4;
     justify-self: center;
+    margin-top: 0;
   }
 
   .item-3 {
     grid-column: 2 / 3;
     grid-row: 3 / 4;
     justify-self: center;
+    margin-top: 0;
   }
 
   .item-4 {
     grid-column: 1 / 3;
     grid-row: 4 / 5;
     justify-self: center;
+    margin-top: 0;
   }
 
   .faq-container {
-        flex-direction: column; /* Se apilan en tablet */
-        gap: 40px;
-    }
-    .faq-titulo {
-        font-size: 50px;
-        text-align: center;
-    }
-    .faq-derecha {
-        padding: 40px;
-    }
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .faq-titulo {
+    font-size: 50px;
+    text-align: center;
+  }
+
+  .faq-derecha {
+    padding: 40px;
+  }
 }
 
 /* mobile */
 @media (max-width: 900px) {
   :root {
-    --header-height: 150px;
+    --header-height: 300px;
+  }
+
+  main {
+    background-size: cover;
   }
 
   .header-container {
@@ -1064,7 +1123,7 @@ details[open] .faq-flecha {
   }
 
   .hero-superior-derecha {
-    top: 35px;
+    top: 60px;
     right: 30px;
     left: 30px;
     text-align: center;
@@ -1079,7 +1138,7 @@ details[open] .faq-flecha {
   .hero-inferior-izquierda {
     left: 30px;
     right: 30px;
-    bottom: 35px;
+    bottom: 60px;
     max-width: none;
     padding: 22px 22px;
   }
@@ -1124,7 +1183,6 @@ details[open] .faq-flecha {
     min-height: auto;
   }
 
-  /* stack method section on phones */
   .seccion-metodo {
     padding: 50px 20px;
   }
@@ -1136,6 +1194,7 @@ details[open] .faq-flecha {
 
   .metodo-grid {
     grid-template-columns: 1fr;
+    row-gap: 36px;
   }
 
   .item-1,
@@ -1146,6 +1205,7 @@ details[open] .faq-flecha {
   .item-centro {
     grid-column: 1 / 2;
     grid-row: auto;
+    margin-top: 0;
   }
 
   .item-centro {
@@ -1154,11 +1214,12 @@ details[open] .faq-flecha {
   }
 
   .footer-container {
-        flex-direction: column;
-        gap: 60px;
-    }
-    .form-row {
-        flex-direction: column;
-        gap: 30px;
-    }
+    flex-direction: column;
+    gap: 60px;
+  }
+
+  .form-row {
+    flex-direction: column;
+    gap: 30px;
+  }
 }
